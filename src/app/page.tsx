@@ -18,7 +18,7 @@ export default function LanguageSelectPage() {
       <div className="relative z-10 flex w-full max-w-md flex-col items-start gap-10 text-left">
         <Image
           src="/brand-logo.png"
-          alt="productizegrowth"
+          alt="productize.growth"
           width={400}
           height={200}
           priority

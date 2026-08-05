@@ -36,7 +36,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "productizegrowth",
+  title: "productize.growth",
   description:
     "turn growth into a product — automation, web, google business and ads.",
 };

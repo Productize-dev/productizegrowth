@@ -108,11 +108,11 @@ export function Hero({ messages, stickers, windows }: HeroProps) {
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
-        <div className="min-w-0 w-full flex-1 text-left lg:max-w-lg">
+        <div className="min-w-0 w-full flex-1 text-left lg:max-w-xl">
           <div className="mb-5 sm:mb-6">
             <Image
               src="/brand-logo.png"
-              alt="productizegrowth"
+              alt="productize.growth"
               width={360}
               height={180}
               priority
@@ -121,19 +121,26 @@ export function Hero({ messages, stickers, windows }: HeroProps) {
             />
           </div>
 
-          <p className="mb-3 text-xs font-medium tracking-wide text-gold">
-            {messages.badge}
-          </p>
+          {messages.badge ? (
+            <p className="mb-3 text-xs font-medium tracking-wide text-gold">
+              {messages.badge}
+            </p>
+          ) : null}
 
-          <h1 className="text-[2.25rem] font-black leading-[1.02] tracking-tight text-ink sm:text-5xl md:text-6xl">
+          <h1 className="max-w-[14ch] text-[2.35rem] font-black leading-[0.98] tracking-tight text-ink sm:max-w-none sm:text-5xl md:text-6xl">
             {messages.headlineBefore}
-            <span className="text-gold underline decoration-gold/40 decoration-4 underline-offset-4">
-              {messages.headlineAccent}
-            </span>
+            {messages.headlineAccent ? (
+              <>
+                <br />
+                <span className="text-gold underline decoration-gold/35 decoration-[0.12em] underline-offset-[0.12em]">
+                  {messages.headlineAccent}
+                </span>
+              </>
+            ) : null}
             {messages.headlineAfter}
           </h1>
 
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/60">
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink/60 sm:text-[0.95rem]">
             {messages.subheadline}
           </p>
 

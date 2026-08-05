@@ -2,7 +2,7 @@ import type { Messages } from "./types";
 
 export const es: Messages = {
   meta: {
-    title: "productizegrowth — crecimiento como producto",
+    title: "productize.growth",
     description:
       "automatización, web, google business y ads. instalados. listos.",
   },
@@ -13,10 +13,10 @@ export const es: Messages = {
     spanish: "español",
   },
   hero: {
-    badge: "crecimiento, productizado",
-    headlineBefore: "",
-    headlineAccent: "tu crecimiento,",
-    headlineAfter: " empaquetado.",
+    badge: "",
+    headlineBefore: "productizamos",
+    headlineAccent: "tu crecimiento.",
+    headlineAfter: "",
     subheadline:
       "respondes en segundos. apareces en google. los leads llegan solos.",
     cta: "hablemos →",
@@ -112,7 +112,7 @@ export const es: Messages = {
       feature: "qué comparas",
       agency: "agencia tradicional",
       diy: "hacerlo tú solo",
-      us: "productizegrowth",
+      us: "productize.growth",
     },
     rows: [
       {
@@ -184,7 +184,7 @@ export const es: Messages = {
     terms: "términos",
     email: "productizecompany@gmail.com",
     location: "estados unidos · latinoamérica",
-    rights: "© 2026 productizegrowth",
+    rights: "© 2026 productize.growth",
   },
   header: {
     cta: "hablemos",

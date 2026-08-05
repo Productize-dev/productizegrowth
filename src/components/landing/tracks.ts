@@ -37,7 +37,7 @@ export type TrackPreset = {
 };
 
 /**
- * hero — long climb uphill (productize growth goes up)
+ * hero — long climb uphill (productize.growth goes up)
  * ground plane under collage; ends highest near showcase
  */
 export const HERO_TRACK: TrackPreset = {

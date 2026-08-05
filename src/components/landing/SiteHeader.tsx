@@ -18,7 +18,7 @@ export function SiteHeader({ locale, cta }: SiteHeaderProps) {
         <Link href={`/${locale}`} className="shrink-0">
           <Image
             src="/brand-logo.png"
-            alt="productizegrowth"
+            alt="productize.growth"
             width={160}
             height={80}
             unoptimized
