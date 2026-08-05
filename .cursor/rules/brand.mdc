@@ -1,0 +1,43 @@
+---
+description: productize brand DNA — filter every UI decision against this checklist
+globs:
+  - "src/**/*.{tsx,ts,css}"
+alwaysApply: true
+---
+
+# productize — brand filter
+
+somos una agencia de una sola persona construyendo plataformas end-to-end para founders early-stage. builder real, no departamento de marketing.
+
+voz: farza (autenticidad, minúsculas, cero jerga) + bone/ink/gold + mappa (contraste) + collage creativo (heyclicky/productize).
+
+narrativa del logo: caja = el sueño se vuelve producto comprable; montaña rusa = camino del founder; **productize growth = el track sube** (más uphill que downhill). diversión al final.
+
+## tipografía
+- todo en minúsculas. sin excepción.
+- satoshi. regular body, bold/black headlines.
+- headlines grandes. line-height 0.95–1.05.
+- body leading 1.5–1.6. párrafos largos a la izquierda. copy corto.
+
+## color
+- bone `#FCF5EB` / ink `#0A0A0A` / gold `#F47521`
+- gold = acento + tracks + stickers. nunca fill enorme de fondo.
+- impacto: ink + gold como corte de luz / track.
+
+## layout
+- collage creativo permitido: ventanas mac redondeadas, stickers, floating demos, whitespace intencional.
+- radius duro (2–4px) en UI densa; ventanas mac / stickers pueden ser más redondeados.
+- secciones con aire creativo + motivos (track, caja), no plantilla vacía.
+- reveals suaves cortos; un wow (hero collage).
+
+## copy
+- primera persona. frases cortas.
+- cta: "hablemos" / "empecemos".
+
+## checklist
+- ¿todo en minúsculas?
+- ¿se siente hecho a mano / creativo, o plantilla?
+- ¿el track / la caja cuentan la historia de growth hacia arriba?
+- ¿suena como manuel?
+
+si no pasa el checklist, no está terminado.
