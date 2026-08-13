@@ -166,7 +166,7 @@ export const es: Messages = {
       "tú vendes — yo no te doy deberes",
     ],
     cta: "empecemos →",
-    trust: "2 instalaciones al mes · cupo real",
+    trust: "",
     sticker: "hecho por mí",
   },
   booking: {
