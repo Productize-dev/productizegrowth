@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-import type { Messages } from "@/messages";
+import type { Locale, Messages } from "@/messages";
 
 import { CalCtaButton } from "./CalCtaButton";
 import { FloatingWindow } from "./FloatingWindow";
@@ -12,6 +13,8 @@ type HeroProps = {
   messages: Messages["hero"];
   stickers: Messages["stickers"];
   windows: Messages["windows"];
+  locale: Locale;
+  pieceLinks: { href: string; label: string }[];
 };
 
 function MiniDemo({ label, hint }: { label: string; hint: string }) {
@@ -27,9 +30,11 @@ function MiniDemo({ label, hint }: { label: string; hint: string }) {
 function SystemShowcase({
   label,
   items,
+  locale,
 }: {
   label: string;
   items: Messages["hero"]["showcaseItems"];
+  locale: Locale;
 }) {
   return (
     <FloatingWindow
@@ -39,9 +44,10 @@ function SystemShowcase({
     >
       <div className="space-y-3 bg-bone p-4 sm:p-5">
         {items.map((item, i) => (
-          <div
+          <Link
             key={item.title}
-            className="rounded-lg border border-ink/10 bg-white p-3 text-left"
+            href={`/${locale}/${item.href}`}
+            className="block rounded-lg border border-ink/10 bg-white p-3 text-left no-underline transition-colors duration-150 hover:border-gold"
           >
             <div className="mb-2 flex items-center justify-between gap-2">
               <span className="font-mono text-[10px] text-gold">
@@ -57,22 +63,28 @@ function SystemShowcase({
                 style={{ width: `${72 - i * 12}%` }}
               />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </FloatingWindow>
   );
 }
 
-export function Hero({ messages, stickers, windows }: HeroProps) {
+export function Hero({
+  messages,
+  stickers,
+  windows,
+  locale,
+  pieceLinks,
+}: HeroProps) {
   return (
     <SectionReveal
       immediate
-      className="relative overflow-hidden border-b border-ink/10 bg-dot-grid px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:pb-24 lg:pt-32"
+      className="relative overflow-hidden border-b border-ink/10 bg-dot-grid px-4 pb-16 pt-[calc(5.5rem+env(safe-area-inset-top))] sm:px-6 sm:pb-20 sm:pt-28 lg:pb-24 lg:pt-32"
     >
       <TrackStage preset="hero" role="ground" />
 
-      <div className="pointer-events-none absolute inset-0 hidden lg:block">
+      <div className="pointer-events-none absolute inset-0 hidden xl:block">
         <FloatingWindow
           label={windows.auto}
           tone="peach"
@@ -127,7 +139,7 @@ export function Hero({ messages, stickers, windows }: HeroProps) {
             </p>
           ) : null}
 
-          <h1 className="max-w-[14ch] text-[2.35rem] font-black leading-[0.98] tracking-tight text-ink sm:max-w-none sm:text-5xl md:text-6xl">
+          <h1 className="max-w-[12ch] text-balance text-[2.15rem] font-black leading-[0.98] tracking-tight text-ink min-[380px]:max-w-none min-[380px]:text-[2.35rem] sm:text-5xl lg:text-6xl">
             {messages.headlineBefore}
             {messages.headlineAccent ? (
               <>
@@ -154,11 +166,22 @@ export function Hero({ messages, stickers, windows }: HeroProps) {
           <div className="mt-7 flex w-full flex-col items-stretch gap-2 sm:max-w-xs sm:items-start">
             <CalCtaButton variant="ink">{messages.cta}</CalCtaButton>
             <p className="text-xs text-ink/40">{messages.trust}</p>
+            <nav className="flex flex-wrap gap-x-4 gap-y-1 md:hidden">
+              {pieceLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={`/${locale}/${item.href}`}
+                  className="text-xs font-black text-ink underline decoration-gold decoration-2 underline-offset-4"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
 
-        <div className="relative w-full max-w-[280px] shrink-0 sm:max-w-[320px]">
-          <div className="absolute -top-3 -right-3 z-20 lg:hidden">
+        <div className="relative w-full max-w-md shrink-0 sm:max-w-lg lg:max-w-[320px]">
+          <div className="absolute top-3 right-3 z-20 lg:hidden">
             <Sticker rotate={12} variant="gold">
               {stickers.shipIt}
             </Sticker>
@@ -166,6 +189,7 @@ export function Hero({ messages, stickers, windows }: HeroProps) {
           <SystemShowcase
             label={messages.showcaseLabel}
             items={messages.showcaseItems}
+            locale={locale}
           />
         </div>
       </div>

@@ -27,7 +27,7 @@ export function Proof({ messages }: ProofProps) {
           </h2>
         </div>
 
-        <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:mb-14 lg:grid-cols-3">
+        <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 lg:mb-14">
           {messages.stats.map((stat, i) => (
             <FloatingWindow
               key={stat.value}

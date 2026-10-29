@@ -1,4 +1,6 @@
-import type { Messages } from "@/messages";
+import Link from "next/link";
+
+import type { Locale, Messages } from "@/messages";
 
 import { FloatingWindow } from "./FloatingWindow";
 import { ProductBox } from "./ProductBox";
@@ -8,15 +10,15 @@ import { TrackStage } from "./TrackStage";
 
 type StepsProps = {
   messages: Messages["steps"];
+  locale: Locale;
 };
 
 const tones = ["peach", "mint", "bone"] as const;
-const floatCycle = ["a", "b", "c"] as const;
 
-export function Steps({ messages }: StepsProps) {
+export function Steps({ messages, locale }: StepsProps) {
   return (
     <SectionReveal className="relative overflow-hidden border-b border-ink/10 bg-dot-grid px-4 py-16 sm:px-6 sm:py-24">
-      <div className="pointer-events-none absolute top-10 right-6 opacity-25 sm:top-14 sm:right-10 sm:opacity-40">
+      <div className="pointer-events-none absolute top-10 right-6 hidden opacity-40 sm:block sm:top-14 sm:right-10">
         <ProductBox size={72} className="animate-float-soft" />
       </div>
 
@@ -50,22 +52,25 @@ export function Steps({ messages }: StepsProps) {
           </Sticker>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4 lg:gap-5">
           {messages.items.map((item, i) => (
             <FloatingWindow
               key={item.number}
               label={item.window}
               tone={tones[i % 3]}
-              float={floatCycle[i % 3]}
+              float="none"
               interactive
               className="h-full"
             >
-              <div className="flex h-full flex-col p-5 text-left sm:p-6">
-                <div className="mb-3 flex items-center justify-between gap-2">
+              <Link
+                href={`/${locale}/${item.href}`}
+                className="flex h-full flex-col p-5 text-left no-underline sm:p-6"
+              >
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                   <span className="font-mono text-xs font-bold text-gold">
                     {item.number}
                   </span>
-                  <span className="rounded-full border border-ink/10 bg-ink/[0.04] px-2.5 py-0.5 text-[10px] font-bold text-ink/50">
+                  <span className="rounded-full border border-ink/10 bg-ink/[0.04] px-2.5 py-0.5 text-right text-[10px] font-bold leading-tight text-ink/50">
                     {item.detail}
                   </span>
                 </div>
@@ -81,14 +86,25 @@ export function Steps({ messages }: StepsProps) {
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/55">
                   {item.description}
                 </p>
-              </div>
+                <span className="mt-4 text-xs font-black text-ink">
+                  {messages.open}
+                </span>
+              </Link>
             </FloatingWindow>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm font-bold text-ink/45 sm:mt-10 sm:text-base">
-          {messages.footer}
-        </p>
+        <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10">
+          <p className="text-center text-sm font-bold text-ink/45 sm:text-base">
+            {messages.footer}
+          </p>
+          <Link
+            href={`/${locale}/sistema`}
+            className="text-sm font-black text-ink underline decoration-gold decoration-2 underline-offset-4"
+          >
+            {messages.systemCta}
+          </Link>
+        </div>
       </div>
     </SectionReveal>
   );

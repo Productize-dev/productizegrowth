@@ -2,7 +2,7 @@ import { en } from "./en";
 import { es } from "./es";
 import type { Locale, Messages } from "./types";
 
-export type { Locale, Messages };
+export type { Locale, Messages, ServiceNavItem, ServiceSlug } from "./types";
 
 export const locales: Locale[] = ["es", "en"];
 

@@ -26,7 +26,7 @@ export function FinalCta({ messages }: FinalCtaProps) {
       <div className="relative overflow-hidden border-b border-ink/10 bg-dot-grid px-4 py-16 sm:px-6 sm:py-24">
         <TrackStage preset="cta" role="backdrop" />
 
-        <div className="pointer-events-none absolute right-6 top-10 hidden sm:block lg:right-12">
+        <div className="pointer-events-none absolute top-10 right-6 hidden lg:right-12 lg:block">
           <div className="animate-float-soft">
             <Sticker rotate={-8}>{messages.sticker}</Sticker>
           </div>

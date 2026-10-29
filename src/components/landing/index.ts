@@ -1,3 +1,4 @@
+export { HomeCases } from "./HomeCases";
 export { Hero } from "./Hero";
 export { VideoFrame } from "./VideoFrame";
 export { Steps } from "./Steps";

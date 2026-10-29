@@ -17,7 +17,7 @@ export function FloatingPip({ messages }: FloatingPipProps) {
   if (closed) return null;
 
   return (
-    <div className="fixed right-3 bottom-3 z-50 w-[160px] sm:right-4 sm:bottom-4 sm:w-[200px]">
+    <div className="fixed right-4 bottom-4 z-50 hidden w-[160px] min-[1400px]:block">
       {minimized ? (
         <Button
           type="button"
