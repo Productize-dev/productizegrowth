@@ -1,17 +1,24 @@
 import { cn } from "@/lib/utils";
 
 type VideoFrameProps = {
-  placeholder: string;
+  placeholder?: string;
   className?: string;
   compact?: boolean;
   showChrome?: boolean;
+  /** youtube video id — when set, embeds the player instead of the play placeholder */
+  youtubeId?: string;
+  title?: string;
+  chromeLabel?: string;
 };
 
 export function VideoFrame({
-  placeholder,
+  placeholder = "watch this →",
   className,
   compact = false,
   showChrome = true,
+  youtubeId,
+  title = "video",
+  chromeLabel = "demo.mov",
 }: VideoFrameProps) {
   return (
     <div
@@ -27,30 +34,43 @@ export function VideoFrame({
           <span className="size-2.5 shrink-0 rounded-full bg-[#febc2e]" aria-hidden />
           <span className="size-2.5 shrink-0 rounded-full bg-[#28c840]" aria-hidden />
           <span className="ml-2 truncate font-mono text-[10px] text-ink/50">
-            demo.mov
+            {chromeLabel}
           </span>
         </div>
       ) : null}
-      <div
-        className={cn(
-          "relative flex flex-col items-center justify-center bg-ink",
-          compact ? "aspect-video" : "aspect-[9/16] max-h-[min(58vh,480px)]"
-        )}
-      >
-        <div className="flex size-12 items-center justify-center border border-gold text-gold">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="ml-0.5 size-5"
-            aria-hidden
-          >
-            <path d="M8 5v14l11-7L8 5z" />
-          </svg>
+      {youtubeId ? (
+        <div className="relative aspect-video w-full bg-ink">
+          <iframe
+            className="absolute inset-0 size-full"
+            src={`https://www.youtube.com/embed/${youtubeId}`}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
         </div>
-        <p className="mt-3 px-3 text-center text-xs font-medium text-bone/70">
-          {placeholder}
-        </p>
-      </div>
+      ) : (
+        <div
+          className={cn(
+            "relative flex flex-col items-center justify-center bg-ink",
+            compact ? "aspect-video" : "aspect-[9/16] max-h-[min(58vh,480px)]"
+          )}
+        >
+          <div className="flex size-12 items-center justify-center border border-gold text-gold">
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="ml-0.5 size-5"
+              aria-hidden
+            >
+              <path d="M8 5v14l11-7L8 5z" />
+            </svg>
+          </div>
+          <p className="mt-3 px-3 text-center text-xs font-medium text-bone/70">
+            {placeholder}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
