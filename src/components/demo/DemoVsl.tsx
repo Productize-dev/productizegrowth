@@ -8,14 +8,16 @@ import { TrackStage } from "@/components/landing/TrackStage";
 
 import { DemoChatMock } from "./DemoChatMock";
 import { DemoHeroCollage } from "./DemoHeroCollage";
+import { DemoResults } from "./DemoResults";
+import { DemoTeam } from "./DemoTeam";
 
 const marqueeItems = [
-  "78% buy from whoever replies first",
-  "21x more likely in 5 minutes",
   "fully booked · wisconsin",
-  "1,478 leads · 73¢",
+  "1,478 leads · $0.73 each",
+  "$168k sales in one month",
+  "3,079 tiktok orders",
+  "4.8x month-over-month",
   "no meetings · fixed price",
-  "text + call · 24/7",
 ];
 
 const pillars = [
@@ -33,19 +35,6 @@ const pillars = [
     n: "03",
     title: "ads that feed it",
     body: "ads that drop leads straight into the system. no dead ends.",
-  },
-] as const;
-
-const proof = [
-  {
-    label: "cleaning · wisconsin",
-    value: "fully booked",
-    detail: "used to have two or three busy days a week. now? every month.",
-  },
-  {
-    label: "dental clinic · ads",
-    value: "1,478 leads",
-    detail: "at 73 cents each. yeah.",
   },
 ] as const;
 
@@ -112,48 +101,9 @@ export function DemoVsl() {
         </div>
       </SectionReveal>
 
-      {/* proof */}
-      <SectionReveal className="relative overflow-hidden border-b border-ink bg-dot-grid-ink px-4 py-14 text-bone sm:px-6 sm:py-20">
-        <TrackStage preset="proof" role="headerRule" />
-        <div className="relative mx-auto max-w-3xl">
-          <p className="mb-2 text-xs font-bold tracking-wide text-gold">
-            does it work?
-          </p>
-          <h2 className="text-2xl font-black leading-[1.05] sm:text-4xl">
-            real businesses.{" "}
-            <span className="text-gold">real numbers.</span>
-          </h2>
+      <DemoResults />
 
-          <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5">
-            {proof.map((item, i) => (
-              <FloatingWindow
-                key={item.label}
-                label="result.json"
-                tone="ink"
-                float={i === 0 ? "a" : "b"}
-                interactive
-                className="border-bone/20 shadow-none"
-              >
-                <div className="p-5 text-left sm:p-6">
-                  <p className="text-xs font-medium text-bone/45">
-                    {item.label}
-                  </p>
-                  <p className="mt-2 text-2xl font-black text-gold sm:text-3xl">
-                    {item.value}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-bone/55">
-                    {item.detail}
-                  </p>
-                </div>
-              </FloatingWindow>
-            ))}
-          </div>
-
-          <p className="mt-8 max-w-xl text-sm leading-relaxed text-bone/60 sm:text-base">
-            no meetings. no tools to learn. fixed price. we build it, it runs.
-          </p>
-        </div>
-      </SectionReveal>
+      <DemoTeam />
 
       {/* call agenda — clinicpro pattern */}
       <SectionReveal className="border-b border-ink/10 bg-bone px-4 py-14 sm:px-6 sm:py-20">
