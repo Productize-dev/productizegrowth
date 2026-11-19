@@ -1,5 +1,25 @@
 export const CAL_LINK = "manuel-vargas-2fqx5n/scope-call";
 export const CAL_NAMESPACE = "scope-call";
+/** post-booking landing — also set as "redirect on booking" in cal.com event settings */
+export const CAL_THANK_YOU_PATH = "/thank-you";
+
+export function redirectToThankYou(data?: {
+  uid?: string;
+  title?: string;
+  startTime?: string;
+  endTime?: string;
+}) {
+  if (typeof window === "undefined") return;
+  const params = new URLSearchParams();
+  if (data?.uid) params.set("uid", data.uid);
+  if (data?.title) params.set("title", data.title);
+  if (data?.startTime) params.set("startTime", data.startTime);
+  if (data?.endTime) params.set("endTime", data.endTime);
+  const query = params.toString();
+  window.location.assign(
+    query ? `${CAL_THANK_YOU_PATH}?${query}` : CAL_THANK_YOU_PATH,
+  );
+}
 
 /** matches site --bone / --ink / --gold */
 const BONE = "#fcf5eb";

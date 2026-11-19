@@ -31,7 +31,7 @@ export function DemoHeroCollage() {
               className="size-1.5 animate-pulse rounded-full bg-gold"
               aria-hidden
             />
-            step 1 of 2 — watch this
+            step 1 — watch · grab the free guide
           </div>
 
           <h1 className="text-3xl font-black leading-[1.02] text-ink sm:text-5xl lg:text-[3.5rem]">
@@ -202,7 +202,16 @@ export function DemoHeroCollage() {
             <p className="text-sm text-ink/55">
               i&apos;m manuel. i built productize growth to fix exactly that.
             </p>
-            <CalCtaButton variant="gold" size="hero" className="mx-auto">
+            <a
+              href="#free-guide"
+              className="inline-flex h-14 w-full max-w-xl items-center justify-center gap-2 rounded-full border-2 border-gold bg-gold px-8 text-base font-black text-ink shadow-[0_18px_50px_-10px_rgba(244,117,33,0.7)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_56px_-8px_rgba(244,117,33,0.85)] animate-cta-glow sm:h-[4.25rem] sm:text-xl"
+            >
+              free leak checklist — download ↓
+            </a>
+            <p className="text-xs font-bold text-ink/50">
+              free pdf · find where your leads die after hours
+            </p>
+            <CalCtaButton variant="ink" size="hero" className="mx-auto mt-1">
               book the call →
             </CalCtaButton>
             <p className="text-xs font-medium text-ink/40">

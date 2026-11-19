@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { DemoHeader } from "@/components/demo/DemoHeader";
+import { DemoLeadFloat } from "@/components/demo/DemoLeadFloat";
 import { DemoStickyCta } from "@/components/demo/DemoStickyCta";
 import { DemoVsl } from "@/components/demo/DemoVsl";
 import {
@@ -36,6 +37,7 @@ export default function DemoPage() {
         />
         <Footer messages={en.footer} />
       </main>
+      <DemoLeadFloat />
       <DemoStickyCta cta="book →" />
     </CalClickProvider>
   );

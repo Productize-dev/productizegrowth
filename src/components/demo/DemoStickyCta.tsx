@@ -40,13 +40,16 @@ export function DemoStickyCta({
       }`}
       aria-hidden={!visible}
     >
-      <div className="mx-auto flex max-w-3xl items-center gap-3">
-        <p className="min-w-0 flex-1 text-xs font-bold leading-snug text-ink/70">
-          ready? book the 30-min call.
-        </p>
+      <div className="mx-auto flex max-w-3xl items-center gap-2">
+        <a
+          href="#free-guide"
+          className="flex h-12 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-gold bg-gold px-3 text-xs font-black text-ink shadow-[0_10px_28px_-8px_rgba(244,117,33,0.7)]"
+        >
+          free guide ↓
+        </a>
         <CalCtaButton
-          variant="gold"
-          className="h-12 shrink-0 px-6 text-sm font-black shadow-[0_10px_28px_-8px_rgba(244,117,33,0.7)]"
+          variant="ink"
+          className="h-12 shrink-0 px-5 text-sm font-black"
         >
           {cta}
         </CalCtaButton>

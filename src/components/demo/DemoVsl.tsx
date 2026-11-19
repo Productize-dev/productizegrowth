@@ -8,6 +8,7 @@ import { TrackStage } from "@/components/landing/TrackStage";
 
 import { DemoChatMock } from "./DemoChatMock";
 import { DemoHeroCollage } from "./DemoHeroCollage";
+import { DemoLeadMagnet } from "./DemoLeadMagnet";
 import { DemoResults } from "./DemoResults";
 import { DemoTeam } from "./DemoTeam";
 
@@ -61,6 +62,8 @@ export function DemoVsl() {
   return (
     <>
       <DemoHeroCollage />
+
+      <DemoLeadMagnet />
 
       <Marquee items={marqueeItems} />
 
@@ -156,7 +159,7 @@ export function DemoVsl() {
         <TrackStage preset="banner" role="divider" />
         <div className="relative mx-auto max-w-3xl text-left">
           <p className="mb-3 text-xs font-bold tracking-wide text-gold">
-            step 2 of 2 — book the call
+            step 2 — book the call
           </p>
           <h2 className="max-w-2xl text-2xl font-black leading-[1.05] sm:text-4xl">
             want this for your business?

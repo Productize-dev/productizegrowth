@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+
+import { MetaPixel } from "@/components/MetaPixel";
+
 import "./globals.css";
 
 const satoshi = localFont({
@@ -49,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${satoshi.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <MetaPixel />
         {children}
         <Analytics />
       </body>
