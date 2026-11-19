@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
 
 import { CAL_NAMESPACE, CAL_UI, redirectToThankYou } from "@/lib/cal";
+import { trackBookingConversions } from "@/lib/meta-pixel";
 
 /** Loads Cal.com click-to-open API for elements with data-cal-* attributes */
 export function CalClickProvider({ children }: { children: React.ReactNode }) {
@@ -13,7 +14,13 @@ export function CalClickProvider({ children }: { children: React.ReactNode }) {
       cal("ui", CAL_UI);
       cal("on", {
         action: "bookingSuccessfulV2",
-        callback: (e) => redirectToThankYou(e.detail.data),
+        callback: (e) => {
+          trackBookingConversions({
+            content_name: "scope-call",
+            ...(e.detail.data.uid ? { eventID: e.detail.data.uid } : {}),
+          });
+          redirectToThankYou(e.detail.data);
+        },
       });
     })();
   }, []);

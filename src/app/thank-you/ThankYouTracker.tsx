@@ -2,12 +2,15 @@
 
 import { useEffect } from "react";
 
-import { trackMetaEvent } from "@/lib/meta-pixel";
+import { trackBookingConversions } from "@/lib/meta-pixel";
 
-/** fires schedule once the thank-you page mounts (conversion event). */
+/**
+ * fires schedule + lead if cal.com redirected here (dashboard "redirect on booking")
+ * without going through the embed callback. deduped against embed path.
+ */
 export function ThankYouTracker() {
   useEffect(() => {
-    trackMetaEvent("Schedule");
+    trackBookingConversions({ content_name: "scope-call" });
   }, []);
 
   return null;

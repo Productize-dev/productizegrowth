@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
+import { DemoBookingTracker } from "@/components/demo/DemoBookingTracker";
 import { DemoHeader } from "@/components/demo/DemoHeader";
 import { DemoLeadFloat } from "@/components/demo/DemoLeadFloat";
 import { DemoStickyCta } from "@/components/demo/DemoStickyCta";
@@ -24,6 +26,9 @@ export const metadata: Metadata = {
 export default function DemoPage() {
   return (
     <CalClickProvider>
+      <Suspense fallback={null}>
+        <DemoBookingTracker />
+      </Suspense>
       <DemoHeader cta="book a call →" />
       <main className="flex-1 pb-20 md:pb-0">
         <DemoVsl />

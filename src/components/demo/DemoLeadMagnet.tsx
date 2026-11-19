@@ -6,6 +6,7 @@ import { useId, useState } from "react";
 import { SectionReveal } from "@/components/landing/SectionReveal";
 import { TrackStage } from "@/components/landing/TrackStage";
 import { Button } from "@/components/ui/button";
+import { trackLeadConversion } from "@/lib/meta-pixel";
 import { cn } from "@/lib/utils";
 
 type FormState = {
@@ -59,6 +60,7 @@ export function DemoLeadMagnet() {
       }
 
       if (data.downloadUrl) setDownloadUrl(data.downloadUrl);
+      trackLeadConversion({ content_name: "leak-checklist" });
       setStatus("done");
     } catch {
       setStatus("error");
